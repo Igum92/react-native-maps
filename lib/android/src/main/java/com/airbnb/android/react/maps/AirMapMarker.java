@@ -7,6 +7,7 @@ import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.util.Log;
 
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
@@ -35,6 +36,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import javax.annotation.Nullable;
 
 public class AirMapMarker extends AirMapFeature {
+
+  private static final String TAG = "RN";
 
   private MarkerOptions markerOptions;
   private Marker marker;
@@ -119,7 +122,7 @@ public class AirMapMarker extends AirMapFeature {
   }
 
   public void setCoordinate(ReadableMap coordinate) {
-    System.out.println("COORDINATES: " + String.valueOf(coordinate));
+   Log.e(TAG, "COORDINATES: " + String.valueOf(coordinate));
     try {
       position = new LatLng(coordinate.getDouble("latitude"), coordinate.getDouble("longitude"));
       if (marker != null) {
@@ -127,7 +130,7 @@ public class AirMapMarker extends AirMapFeature {
       }
       update();
     } catch (Exception ex) {
-      System.out.println("ERROR COORDINATES: " + String.valueOf(coordinate));
+      Log.e(TAG, "ERROR COORDINATES: " + String.valueOf(coordinate));
       throw ex;
     }
   }
