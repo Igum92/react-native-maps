@@ -131,7 +131,7 @@ public class AirMapMarker extends AirMapFeature {
       update();
     } catch (Exception ex) {
       Log.e(TAG, "ERROR COORDINATES: " + String.valueOf(coordinate));
-      throw ex;
+      throw new Exception( "ERROR COORDINATES: " + String.valueOf(coordinate));
     }
   }
 
