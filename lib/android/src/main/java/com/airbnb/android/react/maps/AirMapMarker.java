@@ -122,7 +122,7 @@ public class AirMapMarker extends AirMapFeature {
   }
 
   public void setCoordinate(ReadableMap coordinate) throws Exception {
-   Log.e(TAG, "COORDINATES: " + String.valueOf(coordinate));
+   Log.e(TAG, "COORDINATES ON ID " + identifier + ": " + String.valueOf(coordinate));
     try {
       position = new LatLng(coordinate.getDouble("latitude"), coordinate.getDouble("longitude"));
       if (marker != null) {
@@ -131,7 +131,7 @@ public class AirMapMarker extends AirMapFeature {
       update();
     } catch (Exception ex) {
       Log.e(TAG, "ERROR COORDINATES: " + String.valueOf(coordinate));
-      throw new Exception( "ERROR COORDINATES: " + String.valueOf(coordinate));
+      throw new Exception( "ERROR COORDINATES ON MARKER " + ": " + String.valueOf(coordinate));
     }
   }
 
