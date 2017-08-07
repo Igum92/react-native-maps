@@ -121,7 +121,7 @@ public class AirMapMarker extends AirMapFeature {
         .build();
   }
 
-  public void setCoordinate(ReadableMap coordinate) {
+  public void setCoordinate(ReadableMap coordinate) throws Exception {
    Log.e(TAG, "COORDINATES: " + String.valueOf(coordinate));
     try {
       position = new LatLng(coordinate.getDouble("latitude"), coordinate.getDouble("longitude"));

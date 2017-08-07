@@ -36,7 +36,7 @@ public class AirMapMarkerManager extends ViewGroupManager<AirMapMarker> {
   }
 
   @ReactProp(name = "coordinate")
-  public void setCoordinate(AirMapMarker view, ReadableMap map) {
+  public void setCoordinate(AirMapMarker view, ReadableMap map) throws Exception {
     view.setCoordinate(map);
   }
 
