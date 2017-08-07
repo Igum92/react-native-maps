@@ -119,11 +119,17 @@ public class AirMapMarker extends AirMapFeature {
   }
 
   public void setCoordinate(ReadableMap coordinate) {
-    position = new LatLng(coordinate.getDouble("latitude"), coordinate.getDouble("longitude"));
-    if (marker != null) {
-      marker.setPosition(position);
+    System.out.println("COORDINATES: " + String.valueOf(coordinate));
+    try {
+      position = new LatLng(coordinate.getDouble("latitude"), coordinate.getDouble("longitude"));
+      if (marker != null) {
+        marker.setPosition(position);
+      }
+      update();
+    } catch (Exception ex) {
+      System.out.println("ERROR COORDINATES: " + String.valueOf(coordinate));
+      throw ex;
     }
-    update();
   }
 
   public void setIdentifier(String identifier) {
